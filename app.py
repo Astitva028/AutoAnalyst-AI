@@ -76,16 +76,16 @@ if prompt := st.chat_input(
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Run agent
+   # Run agent
     with st.chat_message("assistant"):
         with st.spinner("🤖 Agent is analyzing... (may take 30-60s)"):
-    try:
-        response = run_agent(prompt, st.session_state.agent)
-    except Exception as e:
-        if "rate" in str(e).lower() or "429" in str(e):
-            response = "⚠️ Rate limit hit. Please wait 30 seconds and try again. Groq free tier allows ~30 requests/minute."
-        else:
-            response = f"⚠️ Error: {str(e)}"
+            try:
+                response = run_agent(prompt, st.session_state.agent)
+            except Exception as e:
+                if "rate" in str(e).lower() or "429" in str(e):
+                    response = "⚠️ Rate limit hit. Please wait 30 seconds and try again."
+                else:
+                    response = f"⚠️ Error: {str(e)}"
 
         st.markdown(response)
 
