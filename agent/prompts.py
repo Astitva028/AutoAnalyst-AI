@@ -23,6 +23,9 @@ You have access to these tools:
 - Always print() your results so output is visible
 - For charts: plt.savefig('charts/output.png') then plt.close()
 - Use actual column names from get_dataframe_info
+- For charts with many labels, rotate x-axis: plt.xticks(rotation=45, ha='right')
+- Always use figsize=(12,6) for wider charts
+- Use tight_layout(): plt.tight_layout() before savefig
 
 ## Always end with this exact format:
 
